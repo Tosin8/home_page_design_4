@@ -87,55 +87,55 @@ class _HomePageState extends State<HomePage>
                 Icons.analytics_outlined,
                 'Example example',
                 context,
-                RouteWhereYouGo(),
+                const RouteWhereYouGo(),
                 const Color(0xffFF6D6D),
                 Icons.all_inclusive,
                 'Example example example',
-                RouteWhereYouGo(),
+                const RouteWhereYouGo(),
               ),
               HomePageCardsGroup(
                 Colors.lightGreen,
                 Icons.gamepad_outlined,
                 'Example example',
                 context,
-                RouteWhereYouGo(),
+                const RouteWhereYouGo(),
                 const Color(0xffffa700),
                 Icons.article,
                 'Example example example',
-                RouteWhereYouGo(),
+                const RouteWhereYouGo(),
               ),
               HomePageCardsGroup(
                 const Color(0xfff37736),
                 Icons.ad_units_outlined,
                 'Example example',
                 context,
-                RouteWhereYouGo(),
+                const RouteWhereYouGo(),
                 const Color(0xffFF6D6D),
                 Icons.article_sharp,
                 'Example example example',
-                RouteWhereYouGo(),
+                const RouteWhereYouGo(),
               ),
               HomePageCardsGroup(
                 const Color(0xfff37736),
                 Icons.android,
                 'Example example',
                 context,
-                RouteWhereYouGo(),
+                const RouteWhereYouGo(),
                 Colors.lightGreen,
                 Icons.text_format,
                 'Example example example',
-                RouteWhereYouGo(),
+                const RouteWhereYouGo(),
               ),
               HomePageCardsGroup(
                 const Color(0xffffa700),
                 Icons.text_fields,
                 'Example example',
                 context,
-                RouteWhereYouGo(),
+                const RouteWhereYouGo(),
                 const Color(0xff63ace5),
                 Icons.calendar_today_sharp,
                 'Example example ',
-                RouteWhereYouGo(),
+                const RouteWhereYouGo(),
               ),
               SizedBox(height: w / 29),
             ],
@@ -156,7 +156,7 @@ class _HomePageState extends State<HomePage>
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return RouteWhereYouGo();
+                              return const RouteWhereYouGo();
                             },
                           ),
                         );
@@ -285,11 +285,38 @@ class _HomePageState extends State<HomePage>
 Widget blurTheStatusBar(BuildContext context) {
   double w = MediaQuery.of(context).size.width; 
   return ClipRRect(
-    child: BackdropFilter(filter: ImageFilter.blur(sigmaY: 5, sigmaX: 5),
-    child: Container(height: w/18, color: Colors.transparent,
+    child: BackdropFilter(
+      filter: ImageFilter.blur(sigmaY: 5, sigmaX: 5),
+    child: Container(
+      height: w/18,
+       color: Colors.transparent,
     )),
   ); 
 }
+}
+
+class RouteWhereYouGo extends StatelessWidget {
+  const RouteWhereYouGo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle.light,
+        backgroundColor: Colors.white,
+        elevation: 50, 
+        centerTitle: true, 
+        shadowColor: Colors.black.withOpacity(.5),
+        title: Text('Example Page', 
+        style: TextStyle(color: Colors.black.withOpacity(.7), 
+        fontWeight: FontWeight.w600, 
+        letterSpacing: 1), 
+        ), 
+        leading: IconButton(icon: Icon(Icons.arrow_back, color:Colors.black.withOpacity(.8), 
+      ), 
+      onPressed: ()=> Navigator.maybePop(context),
+      )));
+  }
 }
 
 
