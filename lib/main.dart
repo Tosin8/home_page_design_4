@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MaterialApp(home: HomePage()));
@@ -97,48 +98,111 @@ class _HomePageState extends State<HomePage>
                       context, 
                       RouteWhereYouGo(), 
                       const Color(0xffffa700), 
-                      Icons.all_inclusive, 
+                      Icons.article, 
                       'Example example example', 
                       RouteWhereYouGo(), 
                     ),
                     HomePageCardsGroup(
                       const Color(0xfff37736), 
-                      Icons.analytics_outlined, 
+                      Icons.ad_units_outlined, 
                       'Example example', 
                       context, 
                       RouteWhereYouGo(), 
                       const Color(0xffFF6D6D), 
-                      Icons.all_inclusive, 
+                      Icons.article_sharp, 
                       'Example example example', 
                       RouteWhereYouGo(), 
                     ),
                     HomePageCardsGroup(
                       const Color(0xfff37736), 
-                      Icons.analytics_outlined, 
+                      Icons.android,  
                       'Example example', 
                       context, 
                       RouteWhereYouGo(), 
-                      const Color(0xffFF6D6D), 
-                      Icons.all_inclusive, 
+                      Colors.lightGreen, 
+                      Icons.text_format, 
                       'Example example example', 
                       RouteWhereYouGo(), 
                     ),
                     HomePageCardsGroup(
-                      const Color(0xfff37736), 
-                      Icons.analytics_outlined, 
+                      const Color(0xffffa700), 
+                      Icons.text_fields, 
                       'Example example', 
                       context, 
                       RouteWhereYouGo(), 
-                      const Color(0xffFF6D6D), 
-                      Icons.all_inclusive, 
-                      'Example example example', 
+                      const Color(0xff63ace5), 
+                      Icons.calendar_today_sharp, 
+                      'Example example ', 
                       RouteWhereYouGo(), 
                     ),
+                    SizedBox(height: w/29), 
+              ], 
+                    ), 
 
-                    )
+                    // Setting Icon
+                    Padding(padding: EdgeInsets.fromLTRB(0,w/9.5, w/15, 0), 
+                    child: Row(
+                      mainAxisAlignment:MainAxisAlignment.end, 
+                      children: const [
+                        InkWell(
+                          highlightColor: Colors.transparent, 
+                          splashColor: Colors.transparent, 
+                          onTap: () {
+                            HapticFeedback.lightImpact(); 
+                            Navigator.push(
+                              context, 
+                            MaterialPageRoute(
+                              builder: (context) {
+                              return RouteWhereYouGo(); 
+                            }, 
+                            ), 
+                            ); 
+
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.all(Radius.circular(99)),
+                            child: BackdropFilter(
+                              filter: ImageFilter.blur(
+                                sigmaY: 5, sigmaX: 5), 
+                                child: Container(
+                                  height: w/8.5, 
+                                  width: w/8.5, 
+                                  decoration: BoxDecoration(
+                                    Colors.black.withOpacity(.05), 
+                                  shape:BoxShape.circle, 
+                                ), 
+                                child: Center(
+                                  child: Icon(
+                                    Icons.settings,
+                                    size: w/17,
+                                    color: Colors.black.withOpacity(.6),
+                                )), 
+                            ),
+                          ),
+
+                        )), 
+
+                    ],
+                    )), 
+
+                    //blur the status bar
+                    blurTheStatusBar(context), 
               ],
-            )
-          ],
-        ));
+            ), 
+    ); 
+          
   }
+
+  Widget homePageCardsGroup(
+    Color color,
+    IconData icon, 
+    String title, 
+    BuildContext context, 
+    Widget route, 
+    Color color2, 
+    IconData icon2, 
+    String title2, 
+    Widget route2 ) {
+      
+    }
 }
