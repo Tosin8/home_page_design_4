@@ -229,41 +229,42 @@ class _HomePageState extends State<HomePage>
               Navigator.push(context,
               MaterialPageRoute(builder: ((context) {
                 return route; 
-              }, 
+                }    ) 
+           ) };  
               ), 
-              ); 
+    )); 
             },
 
             child: Container(
-              padding: EdgeInsets.all(15),
-            height: w/2, 
-            width: w/2.4,
-            decoration: BoxDecoration(
+              padding   = const EdgeInsets.all(15),
+            height  =w/2, 
+            width  = w/2.4,
+            decoration  = BoxDecoration(
               color: Colors.white,
             boxShadow[
               BoxShadow(
-                color: Color(0xff040039).withOpacity(.15), 
+                color: const Color(0xff040039).withOpacity(.15), 
               blurRadius: 99, 
-              ), 
+               ]  ) ), 
             ], 
-            borderRadius: BorderRadius.all(
+            borderRadius: const BorderRadius.all(
               Radius.circular(25), 
             ), 
           ),
-          child: Column(
+          child = Column(
            mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
             children: [
-              SizedBox(), 
+              const SizedBox(), 
               Container(
                 height: w/8, 
                 width: w/8,
                 decoration: BoxDecoration(
-                  color: color.withOpacity(.1), 
+                  color: backgroundColor.withOpacity(.1), 
                   shape: BoxShape.circle, 
                 ), 
-                child Icon(icon, color: color.withOpacity(.6), 
+                child Icon(icon, color: backgroundColor.withOpacity(.6), 
                 )),
-                Text(title, 
+                Text(headline6, 
                 maxLines: 4, 
                 softWrap: true, 
                 overflow: TextOverflow.ellipsis, 
@@ -274,7 +275,7 @@ class _HomePageState extends State<HomePage>
                 ),
                 textAlign: TextAlign.center,
                 ), 
-                SizedBox(), 
+                const SizedBox(), 
             ]. 
               )
 
